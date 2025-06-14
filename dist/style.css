@@ -1,0 +1,29 @@
+body{
+background-color: red;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-direction: column;
+height: 90vh;
+}
+.board-style{
+    width: 330px;
+    height: 330px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 108.5px 108.5px 108.5px;
+    grid-template-rows: 109px 109px 109px;
+    gap: 1px 1px;
+}
+.board-style>div{
+    background-color: wheat;
+}
+button{
+    width: 80px;
+    height: 40px;
+    border-radius: 12px;
+    outline: none;
+}
+h1{
+    color: white;
+}
