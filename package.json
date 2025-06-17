@@ -1,15 +1,20 @@
 {
+  "homepage": "https://Elfetnimourad.github.io/Tic-Tac-Toe-Game",
   "name": "tictactoewithts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d .",
+    "build":"npm build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "typescript": "^5.8.3"
   }
 }

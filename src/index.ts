@@ -1,103 +1,89 @@
 
-let boxes = document.querySelectorAll<HTMLDivElement>('.divs');
+let boxes = document.querySelectorAll<HTMLDivElement>('.divs') ;
 let btn = document.querySelector('button') as HTMLButtonElement;
 let count:number = 0;
 let probaWins:number[][] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 let arroFx :number[]=[]
 let arrofo:number[]=[]
+ let turn : string = "X";
 
-//[0, 1, 3, 6]
 
 boxes.forEach((element,index)=>{
     
     element.addEventListener('click',()=>{
+        // clear before update it
             element.innerHTML = '';
-            
-// X styling
+            //Prevent from Filled Boxes to modified it
+           if (element.children.length > 0) return;
 
-        let i = document.createElement("i") as HTMLCanvasElement;
-i.className = 'fa-solid fa-xmark';
-i.style.fontSize = "70px";
-i.style.color = "red"
-// checking for empty Boxes 
+        let i = document.createElement("i") as HTMLInputElement;
+        i.className = 'fa-solid fa-xmark';
+        i.style.fontSize = "70px";
+        i.style.color = "red";
 
-if(i.className !== ""){
-    count++;
-}
-console.log('counts', count)
-
-if(count>0 && count%2 !==0){
-   i.className = 'fa-solid fa-xmark' ;
+if(turn === "X"){
+i.className = 'fa-solid fa-xmark' ;
    arroFx.push(index);
    arroFx.sort((a,b)=>a-b)
+setTurn("O")
+}else if(turn === "O" ){
 
-   console.log("arroFx",arroFx)
-}else if(count>0 && count % 2 === 0){
 i.className ='fa-regular fa-circle'
 arrofo.push(index)
 arrofo.sort((a,b)=>a-b)
 console.log("arrofo",arrofo)
+setTurn("X")
 }
-
-// if(){
-  
-// i.classList.toggle('fa-regular fa-circle')
-
-// }else if(i.className = 'fa-regular fa-circle'){
-//         i.classList.remove('fa-regular fa-circle')
-//   i.classList.toggle('fa-solid fa-xmark')
-
-// }
-
-// i.style.fontSize = "70px";
-// i.style.color = "red"
 const XPlayer = probaWins.map((e,index)=>{
     let setArrOfX = new Set(arroFx);
     return e.filter(c=>setArrOfX.has(c))
- // return e.filter((c,i)=>JSON.stringify(c) === JSON.stringify([i]));
 })
 const OPlayer = probaWins.map((e,index)=>{
         let setArrOfO = new Set(arrofo);
     return e.filter(c=>setArrOfO.has(c))
 })
-// console.log("let's see ",probaWins.map((e,index)=>{
-//   return e.concat(arroFx[index]);
-// }))
 
-//
         element.style.display ='flex';
         element.style.justifyContent = 'center';
         element.style.alignItems = "center"
         console.log('hi',index)
-        // let x:(string|null) = '❌'
-        // i.textContent = x
         element.appendChild(i);
-    console.log('XPlayer',XPlayer)
-let checkX:boolean = probaWins.some((e,i)=>JSON.stringify(e)==JSON.stringify(XPlayer[i]));
-let checkO:boolean = probaWins.some((e,i)=>JSON.stringify(e)==JSON.stringify(OPlayer[i]));
-        console.log('finding',probaWins.filter((e,i)=>JSON.stringify(e)==JSON.stringify(XPlayer[i])))
-       if(checkX){
+//Checking Part
+     let checkX:boolean = probaWins.some((e,i)=>JSON.stringify(e)==JSON.stringify(XPlayer[i]));
+
+     let checkO:boolean = probaWins.some((e,i)=>JSON.stringify(e)==JSON.stringify(OPlayer[i]));
+
+     let checkXarr:number[][] = probaWins.filter((e,i)=>JSON.stringify(e)==JSON.stringify(XPlayer[i]))
+
+     let checkOarr:number[][] = probaWins.filter((e,i)=>JSON.stringify(e)==JSON.stringify(OPlayer[i]))
+
+    const checkingDraw = [...boxes].every(c=>c.innerHTML !== '')
+
+
+ if(checkX){
+        checkXarr[0].forEach((l,c)=>{
+         boxes[l].style.backgroundColor = "green"
+    })
     alert('X Player Win')
+    
    }else if(checkO){
+     checkOarr[0].forEach((l,c)=>{
+    boxes[l].style.backgroundColor = "green"
+    })
     alert('O Player Win')
-
-   }else if(count>=9){
-    alert("Equal")
+   }else if(checkingDraw) {
+    alert("DRAW")
    }
-
     })
 })
-
 btn.addEventListener('click',function(){
     boxes.forEach(e=>{
         e.innerHTML = '';
-
     }
     )
     arroFx = [];
     arrofo = [];
-    count = 0;
-console.log("arroFx",arroFx)
-console.log("arrofo",arrofo)
-
 })
+function setTurn(val:string): void{
+turn = val;
+}
