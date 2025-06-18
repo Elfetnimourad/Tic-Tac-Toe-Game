@@ -72,6 +72,9 @@ btn.addEventListener('click', function () {
     });
     arroFx = [];
     arrofo = [];
+    boxes.forEach(ele => {
+        ele.style.backgroundColor = "white";
+    });
 });
 function setTurn(val) {
     turn = val;
