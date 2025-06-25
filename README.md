@@ -19,6 +19,3 @@ Small Tic Tac Toe App With Typescript
 2. Install dependencies
 3. Run the project
 
-## License
-
-Add your license information here.
