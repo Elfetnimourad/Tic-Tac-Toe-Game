@@ -1,3 +1,4 @@
+"use strict";
 let boxes = document.querySelectorAll('.divs');
 let btn = document.querySelector('button');
 let probaWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
@@ -74,6 +75,6 @@ btn.addEventListener('click', function () {
         ele.style.backgroundColor = "white";
     });
 });
-export function setTurn(val) {
+function setTurn(val) {
     turn = val;
 }

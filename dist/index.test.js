@@ -19,8 +19,14 @@ beforeAll(() => {
 });
 describe("testing the tic tac toe game", () => {
     test("test button", () => {
+        const probaWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+        let XPlayer = [0, 1, 2];
+        const checkXresult = probaWins.some((e, i) => JSON.stringify(e) === JSON.stringify(XPlayer));
+        const board = document.querySelectorAll(".divs");
         const btn = document.querySelector("button");
         expect(btn).not.toBeNull();
+        expect(probaWins.length).toBe(8);
+        expect(checkXresult).toBeTruthy();
     });
     test("test board Game", () => {
         const board = document.querySelectorAll(".divs");

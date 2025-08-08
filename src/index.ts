@@ -86,7 +86,7 @@ btn.addEventListener('click',function(){
         ele.style.backgroundColor = "white"
     })
 })
-export function setTurn(val:string): void{
+ function setTurn(val:string): void{
 turn = val;
 }
 
