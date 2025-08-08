@@ -1,12 +1,10 @@
 
 let boxes = document.querySelectorAll<HTMLDivElement>('.divs') ;
-let btn = document.querySelector('button') as HTMLButtonElement;
-let count:number = 0;
-let probaWins:number[][] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-let arroFx :number[]=[]
-let arrofo:number[]=[]
+let btn = document.querySelector ('button') as HTMLButtonElement;
+let probaWins:number[][] = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let arroFx :number[]=[];
+let arrofo:number[]=[];
  let turn : string = "X";
-
 
 boxes.forEach((element,index)=>{
     
@@ -64,7 +62,7 @@ const OPlayer = probaWins.map((e,index)=>{
         checkXarr[0].forEach((l,c)=>{
          boxes[l].style.backgroundColor = "green"
     })
-    alert('X Player Win')
+    alert('X Player Win');
     
    }else if(checkO){
      checkOarr[0].forEach((l,c)=>{
@@ -72,7 +70,8 @@ const OPlayer = probaWins.map((e,index)=>{
     })
     alert('O Player Win')
    }else if(checkingDraw) {
-    alert("DRAW")
+    alert("DRAW");
+    
    }
     })
 })
@@ -87,6 +86,8 @@ btn.addEventListener('click',function(){
         ele.style.backgroundColor = "white"
     })
 })
-function setTurn(val:string): void{
+export function setTurn(val:string): void{
 turn = val;
 }
+
+

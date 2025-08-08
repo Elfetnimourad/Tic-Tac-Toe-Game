@@ -8,6 +8,7 @@
       "array-union": "^2.1.0",
       "async": "^3.2.6",
       "braces": "^3.0.3",
+      "canvas-confetti": "^1.9.3",
       "commander": "^13.1.0",
       "commondir": "^1.0.1",
       "dir-glob": "^3.0.1",
@@ -52,12 +53,23 @@
       "universalify": "^2.0.1"
    },
    "devDependencies": {
-      "gh-pages": "^6.3.0"
+      "@babel/core": "^7.28.0",
+      "@babel/preset-env": "^7.28.0",
+      "@babel/preset-typescript": "^7.27.1",
+      "@jest/globals": "^30.0.5",
+      "@types/canvas-confetti": "^1.9.0",
+      "@types/jest": "^30.0.0",
+      "babel-jest": "^30.0.5",
+      "gh-pages": "^6.3.0",
+      "jest": "^30.0.5",
+      "jest-environment-jsdom": "^29.7.0",
+      "ts-jest": "^29.4.1"
    },
    "scripts": {
-     "build": "tsc",               
-  "predeploy": "npm run build",    
-  "deploy": "gh-pages -d dist"     
+      "build": "tsc",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d dist",
+      "test": "jest --watchAll"
    },
    "repository": {
       "type": "git",

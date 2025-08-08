@@ -1,7 +1,5 @@
-"use strict";
 let boxes = document.querySelectorAll('.divs');
 let btn = document.querySelector('button');
-let count = 0;
 let probaWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 let arroFx = [];
 let arrofo = [];
@@ -76,6 +74,6 @@ btn.addEventListener('click', function () {
         ele.style.backgroundColor = "white";
     });
 });
-function setTurn(val) {
+export function setTurn(val) {
     turn = val;
 }
